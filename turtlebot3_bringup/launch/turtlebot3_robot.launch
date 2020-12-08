@@ -4,7 +4,7 @@
 <launch>
   <arg name="multi_robot_name" default=""/>
   <arg name="set_lidar_frame_id" default="base_scan"/>
-<arg name="set_radar_frame_id" default="ti_mmwave_0"/>
+  <arg name="set_radar_frame_id" default="ti_mmwave_0"/>
   <arg name="scan_method" default="lidar" doc="scan type [lidar, radar]"/>
 
   <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
@@ -14,12 +14,6 @@
   <group if="$(eval arg('scan_method') == 'lidar')">
     <include file="$(find turtlebot3_bringup)/launch/turtlebot3_lidar.launch">
       <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
-    </include>
-  </group>
-
-  <group if="$(eval arg('scan_method') == 'radar')">
-    <include file="$(find ti_mmwave_rospkg)/launch/6843_multi_3d_0.launch">
-      <arg name="set_frame_id" value="$(arg set_radar_frame_id)"/>
     </include>
   </group>
 

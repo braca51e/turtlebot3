@@ -11,9 +11,9 @@
 
    <!-- mmWave_Manager node -->
   <node pkg="ti_mmwave_rospkg" type="ti_mmwave_rospkg" name="ti_mmwave" ns="radar_0" output="screen">
-    <param name="command_port" value="/dev/ttyACM0"  />
+    <param name="command_port" value="/dev/ttyUSB0"  />
     <param name="command_rate" value="115200"   />
-    <param name="data_port" value="/dev/ttyACM1"  />
+    <param name="data_port" value="/dev/ttyUSB1"  />
     <param name="data_rate" value="921600"   />
     <param name="max_allowed_elevation_angle_deg" value="$(arg max_allowed_elevation_angle_deg)"   />
     <param name="max_allowed_azimuth_angle_deg" value="$(arg max_allowed_azimuth_angle_deg)"   />
@@ -24,5 +24,4 @@
   <!-- mmWaveQuickConfig node (terminates after configuring mmWave sensor) -->
   <node pkg="ti_mmwave_rospkg" type="mmWaveQuickConfig" name="ti_mmwave_config" ns="radar_0" args="$(find ti_mmwave_rospkg)/cfg/6843_3d.cfg" output="screen" />
 
-  
 </launch>
