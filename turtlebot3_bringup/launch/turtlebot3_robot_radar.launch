@@ -1,20 +1,13 @@
-<!--
-  Launch file for radar turtlebot3
- -->
 <launch>
   <arg name="multi_robot_name" default=""/>
   <arg name="set_lidar_frame_id" default="base_scan"/>
-  <arg name="scan_method" default="lidar" doc="scan type [lidar, radar]"/>
 
   <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
     <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
   </include>
-
-  <group if="$(eval arg('scan_method') == lidar)">
-    <include file="$(find turtlebot3_bringup)/launch/turtlebot3_lidar.launch">
-      <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
-    </include>
-  </group>
+  <include file="$(find turtlebot3_bringup)/launch/turtlebot3_lidar.launch">
+    <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
+  </include>
 
   <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
 </launch>
