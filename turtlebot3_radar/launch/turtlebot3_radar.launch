@@ -2,6 +2,8 @@
   Launch file for radar turtlebot3
  -->
 <launch>
+  <arg name="set_frame_id" default="base_scan"/>
+
   <!-- Input arguments -->
   <arg name="device" value="6843" doc="TI mmWave sensor device type [1443, 1642, 6843]"/>
   <arg name="config" value="3d" doc="TI mmWave sensor device configuration [3d_best_range_res (not supported by 1642 EVM), 2d_best_range_res]"/>

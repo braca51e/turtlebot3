@@ -4,7 +4,7 @@
 <launch>
   <arg name="multi_robot_name" default=""/>
   <arg name="set_lidar_frame_id" default="base_scan"/>
-  <arg name="set_radar_frame_id" default="ti_mmwave_0"/>
+  <arg name="set_radar_frame_id" default="base_scan"/>
   <arg name="scan_method" default="lidar" doc="scan type [lidar, radar]"/>
 
   <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
