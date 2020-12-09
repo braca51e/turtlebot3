@@ -28,17 +28,17 @@ find_package(catkin REQUIRED COMPONENTS
 # Declare catkin specific configuration to be passed to dependent projects
 ################################################################################
 catkin_package(
-  INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp sensor_msgs  
+#  INCLUDE_DIRS include
+  CATKIN_DEPENDS roscpp sensor_msgs
 )
 
 ################################################################################
 # Build
 ################################################################################
-#include_directories(
+include_directories(
 #  include
-#  ${catkin_INCLUDE_DIRS}
-#)
+  ${catkin_INCLUDE_DIRS}
+)
 
 
 ################################################################################
@@ -56,3 +56,4 @@ install(DIRECTORY bag config launch rviz
 ################################################################################
 # Test
 ################################################################################
+
