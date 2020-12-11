@@ -1,8 +1,12 @@
 <launch>
   <arg name="model"/>
-  <arg scan_method="lidar"/>
+  <arg name="scan_method"/>
   <group if="$(eval arg('scan_method') == 'lidar')">
     <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
   </group>
-  <param name="robot_description" command="$(arg urdf_file)" />
+  <group if="$(eval arg('scan_method') == 'radar')">
+    <arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find turtlebot3_description)/urdf/turtlebot3_radar_$(arg model).urdf.xacro'" />
+    <param name="robot_description" command="$(arg urdf_file)" />
+  </group>
 </launch>

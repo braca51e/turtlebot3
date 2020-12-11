@@ -4,11 +4,11 @@
 <launch>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <arg name="multi_robot_name" default=""/>
-  <arg scan_method="method" default="lidar" doc="type of scan method"/>
+  <arg name="scan_method" default="lidar" doc="type of scan method"/>
 
   <include file="$(find turtlebot3_bringup)/launch/includes/description.launch.xml">
     <arg name="model" value="$(arg model)" />
-     <arg scan_method="lidar" value="$(arg scan_method)"/>
+     <arg name="scan_method" value="$(arg scan_method)"/>
   </include>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
