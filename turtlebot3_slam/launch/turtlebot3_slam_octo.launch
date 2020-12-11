@@ -6,7 +6,14 @@
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <arg name="slam_methods" default="gmapping" doc="slam type [gmapping, cartographer, hector, karto, frontier_exploration, radar_octo]"/>
   <arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
-  <arg name="open_rviz" default="false"/>
+  <arg name="open_rviz" default="true"/>
+  <arg scan_method="method" default="radar" doc="type of scan method"/>
+
+  <!-- TurtleBot3 -->
+  <include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg scan_method="radar" value="$(arg scan_method)"/>
+  </include>
 
   <!-- Add nodes to filter/limit Radar data before using it for mapping -->
   <include file="$(find turtlebot_mmwave_launchers)/launch/radar_limit_filters.launch">
