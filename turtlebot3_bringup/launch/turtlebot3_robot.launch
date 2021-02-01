@@ -18,9 +18,24 @@
   </group>
 
   <group if="$(eval arg('scan_method') == 'radar')">
+    <!-- Radar 6843ISK -->
     <include file="$(find ti_mmwave_rospkg)/launch/6843_multi_3d_0.launch">
       <arg name="set_radar_frame_id" value="$(arg set_radar_frame_id)"/>
     </include>
+
+    <!-- Raspberry camera -->
+    <node pkg="jetson_camera" type="jetson_camera_node" name="main_camera" clear_params="true" output="screen">
+      <param name="cap_width" value="640"/>
+      <param name="cap_height" value="480"/>
+      <param name="width" value="640"/>
+      <param name="height" value="480"/>
+      <param name="fps" value="24"/>
+      <param name="flip_method" value="6"/>
+
+      <param name="frame_id" value="rasp_cam_frame"/>
+      <param name="camera_info_url" value="file://$(find jetson_camera)/camera_info/raspicam_v2.yaml"/>
+    </node>
   </group>
+  
   <node pkg="turtlebot3_bringup" type="turtlebot3_diagnostics" name="turtlebot3_diagnostics" output="screen"/>
 </launch>
