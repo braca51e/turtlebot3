@@ -25,10 +25,10 @@
 
     <!-- Raspberry camera -->
     <node pkg="jetson_camera" type="jetson_camera_node" name="main_camera" clear_params="true" output="screen">
-      <param name="cap_width" value="640"/>
-      <param name="cap_height" value="480"/>
-      <param name="width" value="640"/>
-      <param name="height" value="480"/>
+      <param name="cap_width" value="1280"/>
+      <param name="cap_height" value="720"/>
+      <param name="width" value="1280"/>
+      <param name="height" value="720"/>
       <param name="fps" value="24"/>
       <param name="flip_method" value="6"/>
 
