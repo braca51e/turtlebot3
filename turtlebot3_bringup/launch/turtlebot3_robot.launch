@@ -19,7 +19,7 @@
 
   <group if="$(eval arg('scan_method') == 'radar')">
     <!-- Radar 6843ISK -->
-    <include file="$(find ti_mmwave_rospkg)/launch/6843_multi_3d_0.launch">
+    <include file="$(find ti_mmwave_rospkg)/launch/6843_multi_3d_turtlebot3.launch">
       <arg name="set_radar_frame_id" value="$(arg set_radar_frame_id)"/>
     </include>
 
