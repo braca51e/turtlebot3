@@ -9,9 +9,10 @@
   <arg name="max_allowed_elevation_angle_deg" default="90" doc="Maximum allowed elevation angle in degrees for detected object data [0 > value >= 90]}"/>
   <arg name="max_allowed_azimuth_angle_deg" default="90" doc="Maximum allowed azimuth angle in degrees for detected object data [0 > value >= 90]}"/>
   <arg name="set_frame_id" default="base_scan"/>
+  <arg name="output_radar" default=""/>
 
    <!-- mmWave_Manager node -->
-  <node pkg="ti_mmwave_rospkg" type="ti_mmwave_rospkg" name="ti_mmwave" ns="radar_0" output="screen">
+  <node pkg="ti_mmwave_rospkg" type="ti_mmwave_rospkg" name="ti_mmwave" ns="radar_0" output=value="$(arg output_radar)">
     <param name="command_port" value="/dev/ttyUSB0"  />
     <param name="command_rate" value="115200"   />
     <param name="data_port" value="/dev/ttyUSB1"  />

@@ -4,7 +4,9 @@
 <launch>
   <arg name="multi_robot_name" default=""/>
   <arg name="set_lidar_frame_id" default="base_scan"/>
-  <arg name="set_radar_frame_id" default="ti_mmwave"/>
+  <arg name="set_radar_frame_id" default="ti_mmwave_frame"/>
+  <arg name="output_radar" default="log"/>
+  <arg name="output_cam" default="log"/>
   <arg name="scan_method" default="lidar" doc="scan type [lidar, radar]"/>
 
   <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
@@ -21,10 +23,11 @@
     <!-- Radar 6843ISK -->
     <include file="$(find turtlebot3_radar)/launch/turtlebot3_radar.launch">
       <arg name="set_frame_id" value="$(arg set_radar_frame_id)"/>
+      <arg name="output_radar" value="$(arg output_radar)"/>
     </include>
 
     <!-- Raspberry camera -->
-    <node pkg="jetson_camera" type="jetson_camera_node" name="main_camera" clear_params="true" output="screen">
+    <node pkg="jetson_camera" type="jetson_camera_node" name="rasp_cam" clear_params="true" output="$(arg output_cam)">
       <param name="cap_width" value="1280"/>
       <param name="cap_height" value="720"/>
       <param name="width" value="1280"/>
