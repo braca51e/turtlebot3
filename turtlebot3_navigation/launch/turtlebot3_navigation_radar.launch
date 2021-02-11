@@ -1,0 +1,49 @@
+<!--
+  Navigation with Radar
+ -->
+<launch>
+  <!-- Arguments -->
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="map_file" default="$(find turtlebot3_navigation)/maps/map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+  <arg name="scan_method" default="radar" doc="type of scan method"/>
+
+  <!-- Turtlebot3 -->
+  <include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="scan_method" value="$(arg scan_method)"/>
+  </include>
+
+  <!-- Add nodes to filter/limit Radar data before using it for mapping -->
+  <include file="$(find turtlebot3_radar)/launch/radar_limit_filters.launch">
+  </include>
+
+  <!-- Fake localization node allows directly setting initial pose and goal -->
+  <node pkg="fake_localization" type="fake_localization" name="fake_localization">
+    <param name="use_map_topic" value="true"/>
+    <remap from="base_pose_ground_truth" to="odom"/>
+  </node>
+
+  <!-- Map server -->
+  <node name="octomap_server" pkg="octomap_server" type="octomap_server_node" args="$(find turtlebot3_navigation)/launch/octo_test.bt" output="screen">
+    <remap from="projected_map" to="map"/>
+  </node>
+
+  <!-- AMCL -->
+  <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
+    <arg name="scan_topic" value="scan"/>
+  </include>
+
+  <!-- move_base -->
+  <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+    <arg name="model" value="$(arg model)" />
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+  </group>
+</launch>
