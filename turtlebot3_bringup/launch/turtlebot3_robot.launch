@@ -7,19 +7,19 @@
   <arg name="set_radar_frame_id" default="ti_mmwave_frame"/>
   <arg name="output_radar" default="log"/>
   <arg name="output_cam" default="log"/>
-  <arg name="scan_method" default="lidar" doc="scan type [lidar, radar]"/>
+  <arg name="scan_sensor" default="lidar" doc="scan type [lidar, radar]"/>
 
   <include file="$(find turtlebot3_bringup)/launch/turtlebot3_core.launch">
     <arg name="multi_robot_name" value="$(arg multi_robot_name)"/>
   </include>
 
-  <group if="$(eval arg('scan_method') == 'lidar')">
+  <group if="$(eval arg('scan_sensor') == 'lidar')">
     <include file="$(find turtlebot3_bringup)/launch/turtlebot3_lidar.launch">
       <arg name="set_frame_id" value="$(arg set_lidar_frame_id)"/>
     </include>
   </group>
 
-  <group if="$(eval arg('scan_method') == 'radar')">
+  <group if="$(eval arg('scan_sensor') == 'radar')">
     <!-- Radar 6843ISK -->
     <include file="$(find turtlebot3_radar)/launch/turtlebot3_radar.launch">
       <arg name="set_frame_id" value="$(arg set_radar_frame_id)"/>
