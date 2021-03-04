@@ -1,3 +1,6 @@
+<!--
+  Launch amcl
+ -->
 <launch>
   <!-- Arguments -->
   <arg name="scan_topic"     default="scan"/>
