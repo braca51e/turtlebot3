@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>ti_mmwave_rospkg</name>
+  <name>turtlebot3_radar</name>
   <version>1.5.0</version>
-  <description>The ti_mmwave_rospkg package</description>
+  <description>The turtlebot3_radar package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
