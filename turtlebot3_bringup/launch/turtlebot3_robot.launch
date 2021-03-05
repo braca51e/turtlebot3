@@ -21,8 +21,7 @@
 
   <group if="$(eval arg('scan_sensor') == 'radar')">
     <!-- Radar 6843ISK -->
-    <include file="$(find turtlebot3_radar)/launch/turtlebot3_radar.launch">
-      <arg name="set_frame_id" value="$(arg set_radar_frame_id)"/>
+    <include file="$(find turtlebot3_radar)/launch/ti_mmwave_sensor.launch">
       <arg name="output_radar" value="$(arg output_radar)"/>
     </include>
 
