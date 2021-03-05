@@ -38,10 +38,10 @@
 */
 #include "mmWaveCommSrv.hpp"
 
-namespace ti_mmwave_rospkg
+namespace turtlebot3_radar
 {
 
-PLUGINLIB_EXPORT_CLASS(ti_mmwave_rospkg::mmWaveCommSrv, nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(turtlebot3_radar::mmWaveCommSrv, nodelet::Nodelet);
 
 mmWaveCommSrv::mmWaveCommSrv() {}
 

@@ -54,9 +54,9 @@
 #include <sstream>
 
 /*mmWave Driver Headers*/
-#include <ti_mmwave_rospkg/mmWaveCLI.h>
+#include <turtlebot3_radar/mmWaveCLI.h>
 
-namespace ti_mmwave_rospkg
+namespace turtlebot3_radar
 {
 
 class mmWaveCommSrv : public nodelet::Nodelet
@@ -69,7 +69,7 @@ class mmWaveCommSrv : public nodelet::Nodelet
    
    virtual void onInit();
    
-   bool commSrv_cb(ti_mmwave_rospkg::mmWaveCLI::Request  &req, ti_mmwave_rospkg::mmWaveCLI::Response &res);
+   bool commSrv_cb(turtlebot3_radar::mmWaveCLI::Request  &req, turtlebot3_radar::mmWaveCLI::Response &res);
    
    ros::ServiceServer commSrv;
    
@@ -78,6 +78,6 @@ class mmWaveCommSrv : public nodelet::Nodelet
    int myBaudRate;
 }; //Class mmWaveCommSrv 
 
-} //namespace ti_mmwave_rospkg 
+} //namespace turtlebot3_radar 
 
 #endif

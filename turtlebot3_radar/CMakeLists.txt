@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ti_mmwave_rospkg)
+project(turtlebot3_radar)
 
 ## Add support for C++11, supported in ROS Kinetic and newer
  add_definitions(-std=c++11)
@@ -127,7 +127,7 @@ catkin_package(
 # include_directories(include)
 include_directories( include
   ${catkin_INCLUDE_DIRS}
-  ${ti_mmwave_rospkg_INCLUDE_DIRS}
+  ${turtlebot3_radar_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
   ${pthread_INCLUDE_DIRS}
   ${rt_INCLUDE_DIRS}
@@ -154,7 +154,7 @@ add_dependencies(mmwave ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TA
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/ti_mmwave_rospkg_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/turtlebot3_radar_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -221,7 +221,7 @@ add_dependencies(mmWaveQuickConfig ${catkin_EXPORTED_TARGETS} mmwave)
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_ti_mmwave_rospkg.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_turtlebot3_radar.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -5,7 +5,7 @@
  * This file implements a ROS node which will load the mmWaveDataHdl and mmWaveCommSrv nodelets at runtime.
  * Use the following command to start this node:
  *
- * rosrun ti_mmwave_rospkg ti_mmwave_rospkg _data_port:=/dev/ttyACM1 _data_rate:=921600 _command_port:=/dev/ttyACM0 _command_rate:=115200
+ * rosrun turtlebot3_radar turtlebot3_radar _data_port:=/dev/ttyACM1 _data_rate:=921600 _command_port:=/dev/ttyACM0 _command_rate:=115200
  *              
  * And replace the ports with the proper name on your system.
  *
@@ -56,9 +56,9 @@ int main(int argc, char **argv)
   
   nodelet::V_string nargv;
   
-  manager.load("mmWaveCommSrv", "ti_mmwave_rospkg/mmWaveCommSrv", remap, nargv);
+  manager.load("mmWaveCommSrv", "turtlebot3_radar/mmWaveCommSrv", remap, nargv);
   
-  manager.load("mmWaveDataHdl", "ti_mmwave_rospkg/mmWaveDataHdl", remap, nargv);
+  manager.load("mmWaveDataHdl", "turtlebot3_radar/mmWaveDataHdl", remap, nargv);
   
   ros::spin();
   

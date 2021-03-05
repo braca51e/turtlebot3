@@ -1,5 +1,5 @@
 <!--
-  ti_mmwave_rospkg Launch 
+  turtlebot3_radar Launch 
  -->
 
 <launch>
@@ -12,7 +12,7 @@
   <arg name="output_radar" default=""/>
 
   <!-- mmWave_Manager node -->
-  <node pkg="ti_mmwave_rospkg" type="ti_mmwave_rospkg" name="mmWave_Manager" output="$(arg output_radar)">
+  <node pkg="turtlebot3_radar" type="turtlebot3_radar" name="mmWave_Manager" output="$(arg output_radar)">
     <param name="command_port" value="/dev/ttyUSB1"  />
     <param name="command_rate" value="115200"   />
     <param name="data_port" value="/dev/ttyUSB2"  />
@@ -22,6 +22,6 @@
   </node>
   
   <!-- mmWaveQuickConfig node (terminates after configuring mmWave sensor) -->
-  <node pkg="ti_mmwave_rospkg" type="mmWaveQuickConfig" name="ti_mmwave_config" ns="radar_0" args="$(find turtlebot3_radar)/cfg/6843_3d.cfg" output="$(arg output_radar)" />
+  <node pkg="turtlebot3_radar" type="mmWaveQuickConfig" name="ti_mmwave_config" ns="radar_0" args="$(find turtlebot3_radar)/cfg/6843_3d.cfg" output="$(arg output_radar)" />
   
 </launch>

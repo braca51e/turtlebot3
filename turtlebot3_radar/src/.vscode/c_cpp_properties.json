@@ -10,7 +10,7 @@
         "/opt/ros/melodic/include/**",
         "/home/luis/cattkin_ws/src/cloud_cam_fusion/include/**",
         "/home/luis/cattkin_ws/src/serial/include/**",
-        "/home/luis/cattkin_ws/src/ti_mmwave_rospkg/include/**",
+        "/home/luis/cattkin_ws/src/turtlebot3_radar/include/**",
         "/home/luis/cattkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
         "/home/luis/cattkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
         "/home/luis/cattkin_ws/src/turtlebot3/turtlebot3_slam/include/**",

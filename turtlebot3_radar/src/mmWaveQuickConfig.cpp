@@ -39,7 +39,7 @@
 */
 
 #include "ros/ros.h"
-#include "ti_mmwave_rospkg/mmWaveCLI.h"
+#include "turtlebot3_radar/mmWaveCLI.h"
 #include <cstdlib>
 #include <fstream>
 #include <stdio.h>
@@ -59,8 +59,8 @@ int main(int argc, char **argv)
   }
   
   ros::NodeHandle n;
-  ros::ServiceClient client = n.serviceClient<ti_mmwave_rospkg::mmWaveCLI>("/mmWaveCommSrv/mmWaveCLI");
-  ti_mmwave_rospkg::mmWaveCLI srv;
+  ros::ServiceClient client = n.serviceClient<turtlebot3_radar::mmWaveCLI>("/mmWaveCommSrv/mmWaveCLI");
+  turtlebot3_radar::mmWaveCLI srv;
   std::ifstream myParams;
   
   //wait for service to become available

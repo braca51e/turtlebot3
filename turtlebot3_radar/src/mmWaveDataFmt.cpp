@@ -36,10 +36,10 @@
 */
 #include "mmWaveDataFmt.hpp"
 
-namespace ti_mmwave_rospkg
+namespace turtlebot3_radar
 {
 
-PLUGINLIB_EXPORT_CLASS(ti_mmwave_rospkg::mmWaveDataFmt, nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(turtlebot3_radar::mmWaveDataFmt, nodelet::Nodelet);
 
 mmWaveDataFmt::mmWaveDataFmt() {}
 

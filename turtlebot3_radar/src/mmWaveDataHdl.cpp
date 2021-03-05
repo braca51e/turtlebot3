@@ -40,10 +40,10 @@
 #include "mmWaveDataHdl.hpp"
 #include "DataHandlerClass.h"
 
-namespace ti_mmwave_rospkg
+namespace turtlebot3_radar
 {
 
-PLUGINLIB_EXPORT_CLASS(ti_mmwave_rospkg::mmWaveDataHdl, nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(turtlebot3_radar::mmWaveDataHdl, nodelet::Nodelet);
 
 mmWaveDataHdl::mmWaveDataHdl() {}
 

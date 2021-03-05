@@ -56,7 +56,7 @@
 /*mmWave Driver Headers*/
 #include "DataHandlerClass.h"
 
-namespace ti_mmwave_rospkg
+namespace turtlebot3_radar
 {
 
 class mmWaveDataHdl : public nodelet::Nodelet
@@ -75,6 +75,6 @@ class mmWaveDataHdl : public nodelet::Nodelet
    
 }; //Class mmWaveDataHdl 
 
-} //namespace ti_mmwave_rospkg 
+} //namespace turtlebot3_radar 
 
 #endif

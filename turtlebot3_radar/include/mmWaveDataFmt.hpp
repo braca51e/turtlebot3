@@ -50,7 +50,7 @@
 #include <cstdio>
 #include <sstream>
 
-namespace ti_mmwave_rospkg
+namespace turtlebot3_radar
 {
 
 class mmWaveDataFmt : public nodelet::Nodelet
@@ -74,6 +74,6 @@ class mmWaveDataFmt : public nodelet::Nodelet
    
 }; //Class mmWaveDataFmt 
 
-} //namespace ti_mmwave_rospkg 
+} //namespace turtlebot3_radar 
 
 #endif
