@@ -3,10 +3,6 @@
   <xacro:include filename="$(find turtlebot3_description)/urdf/common_properties.xacro"/>
   <xacro:include filename="$(find turtlebot3_description)/urdf/turtlebot3_burger.gazebo.xacro"/>
 
-  <material name="red">
-    <color rgba="1 0 0 1"/>
-  </material>
-
   <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
@@ -138,11 +134,11 @@
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>
     <child link="ti_mmwave_frame"/>
-    <origin xyz="0.045 0.02 0.125" rpy="0 0 0"/>
+    <origin xyz="0.057 0.01 0.14" rpy="0 0 0"/>
   </joint>
 
   <link name="ti_mmwave_frame">
-    <origin xyz="0 -0.01 0.02" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
 
     <collision>
       <origin xyz="0.000 0 0.035" rpy="0 0 0"/>
@@ -153,22 +149,16 @@
          <color rgba="0 1.0 1.0 1.0"/>
       </material>
     </collision>
-   <visual>
-        <geometry>
-          <box size="0.01 0.05 0.06" />
-        </geometry>
-        <material name="red"/>
-      </visual>
   </link>
 
   <joint name="cam_joint" type="fixed">
     <parent link="base_link"/>
     <child link="rasp_cam_frame"/>
-    <origin xyz="0.025 0.0 0.175" rpy="0 0 0"/>
+    <origin xyz="0.052 0.0 0.185" rpy="0 0 0"/>
   </joint>
 
   <link name="rasp_cam_frame">
-    <origin xyz="0.020 0 0.0105" rpy="0 0 0"/>
+    <origin xyz="0.0 0 0" rpy="0 0 0"/>
 
     <inertial>
       <mass value="0.005" />
